@@ -2,6 +2,7 @@ import { ref, computed } from 'vue'
 import type { Plan, CompareItem } from '@/types/plan'
 
 const MAX_COMPARE = 4
+// Module-level singleton
 const compareItems = ref<CompareItem[]>([])
 
 export function useCompare() {

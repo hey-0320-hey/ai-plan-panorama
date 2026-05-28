@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
 import { useCompare } from '@/composables/useCompare'
-import { inject } from 'vue'
+import { inject , type Ref } from 'vue'
 
 const router = useRouter()
 const { compareItems, compareCount, clearCompare, removeFromCompare } = useCompare()
-const isDark = inject('isDark', { value: false })
+const isDark = inject('isDark') as Ref<boolean>
 
 function goToCompare() {
   router.push('/compare')

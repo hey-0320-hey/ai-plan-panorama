@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { Plan } from '@/types/plan'
-import { computed, inject } from 'vue'
+import { computed, inject , type Ref } from 'vue'
 
 const props = defineProps<{
   plan: Plan
@@ -12,7 +12,7 @@ const emit = defineEmits<{
   'toggle-compare': [plan: Plan]
 }>()
 
-const isDark = inject('isDark', { value: false })
+const isDark = inject('isDark') as Ref<boolean>
 
 const statusMap: Record<string, { label: string; bg: string; text: string; darkBg: string; darkText: string }> = {
   on_sale:   { label: '在售', bg: '#ebf5ff', text: '#0068d6', darkBg: 'rgba(0,114,245,0.15)', darkText: '#60a5fa' },

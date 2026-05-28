@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { PlanFilters, SortField, SortOrder } from '@/types/plan'
 import type { Vendor, PlanCategory } from '@/types/plan'
-import { inject } from 'vue'
+import { inject , type Ref } from 'vue'
 
 const props = defineProps<{
   filters: PlanFilters
@@ -18,7 +18,7 @@ const emit = defineEmits<{
   'toggle-vendor': [slug: string]
 }>()
 
-const isDark = inject('isDark', { value: false })
+const isDark = inject('isDark') as Ref<boolean>
 
 function updateFilter<K extends keyof PlanFilters>(key: K, value: PlanFilters[K]) {
   emit('update:filters', { ...props.filters, [key]: value })

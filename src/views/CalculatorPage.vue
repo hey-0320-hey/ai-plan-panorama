@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { onMounted, computed, inject } from 'vue'
+import { onMounted, computed, inject , type Ref } from 'vue'
 import { usePlans } from '@/composables/usePlans'
 import { useCalculator } from '@/composables/useCalculator'
 
 const { plans, loading, fetchData } = usePlans()
 const { monthlyRequests, calculate } = useCalculator()
-const isDark = inject('isDark', { value: false })
+const isDark = inject('isDark') as Ref<boolean>
 
 onMounted(fetchData)
 
