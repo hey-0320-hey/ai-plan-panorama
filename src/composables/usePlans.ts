@@ -27,7 +27,7 @@ export function usePlans() {
     loading.value = true
     error.value = null
     try {
-      if (isSupabaseConfigured) {
+      if (isSupabaseConfigured && supabase) {
         const [plansRes, vendorsRes, catsRes, annRes] = await Promise.all([
           supabase.from('plans').select('*, vendor:vendor_id(*), category:category_id(*)').order('sort_order'),
           supabase.from('vendors').select('*').order('sort_order'),
@@ -39,6 +39,7 @@ export function usePlans() {
         categories.value = catsRes.data || []
         announcements.value = annRes.data || []
       } else {
+        // Use mock data when Supabase is not configured
         plans.value = mockPlans.map(p => ({
           ...p,
           vendor: mockVendors.find(v => v.id === p.vendor_id),
@@ -51,6 +52,7 @@ export function usePlans() {
       dataLoaded = true
     } catch (e: any) {
       error.value = e.message
+      console.error('Failed to fetch data:', e)
     } finally {
       loading.value = false
     }
