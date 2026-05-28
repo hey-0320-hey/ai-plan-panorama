@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Plan 全景 — 大模型套餐定价全网对比</title>
+    <meta name="description" content="全网最全的 AI 套餐信息，一站式对比 Token Plan、Coding Plan、Agent Plan 定价与额度。覆盖阿里云百炼、火山方舟、讯飞星火、智谱、MiniMax 等主流厂商。" />
+    <meta name="keywords" content="AI Plan, Token Plan, Coding Plan, 大模型定价, 大模型价格对比, 阿里云百炼, 火山方舟, 讯飞星火, 智谱, MiniMax" />
+    <script>
+      (function() {
+        try {
+          var preference = localStorage.getItem('ai-plan-theme') || 'system';
+          var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+          var isDark = preference === 'dark' || (preference !== 'light' && prefersDark);
+          document.documentElement.classList.toggle('dark', isDark);
+        } catch(e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

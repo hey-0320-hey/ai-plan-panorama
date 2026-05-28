@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+/* AI Plan 全景 — 基于 Vercel Design System 适配 */
+/* 字体：使用系统字体栈，接近 Geist 风格 */
+
+:root {
+  /* 核心色板 */
+  --color-primary: #171717;
+  --color-surface: #ffffff;
+  --color-text: #171717;
+  --color-text-secondary: #4d4d4d;
+  --color-text-tertiary: #666666;
+  --color-border: rgba(0, 0, 0, 0.08);
+  --color-bg-subtle: #fafafa;
+  
+  /* 工作流强调色 */
+  --color-accent-blue: #0072f5;
+  --color-accent-ship: #ff5b4f;
+  --color-accent-preview: #de1d8d;
+  --color-accent-develop: #0a72ef;
+  
+  /* Focus */
+  --color-focus: hsla(212, 100%, 48%, 1);
+}
+
+.dark {
+  --color-primary: #ededed;
+  --color-surface: #0a0a0a;
+  --color-text: #ededed;
+  --color-text-secondary: #a1a1a1;
+  --color-text-tertiary: #737373;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-bg-subtle: #141414;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  transition: background-color 0.2s, color 0.2s;
+}
+
+/* Shadow-as-border technique from Vercel design system */
+.shadow-border {
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+
+.dark .shadow-border {
+  box-shadow: rgba(255, 255, 255, 0.06) 0px 0px 0px 1px;
+}
+
+/* Card shadow stack: border + elevation + inner glow */
+.card-shadow {
+  box-shadow:
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px,
+    rgba(0, 0, 0, 0.04) 0px 2px 4px,
+    #fafafa 0px 0px 0px 1px inset;
+}
+
+.dark .card-shadow {
+  box-shadow:
+    rgba(255, 255, 255, 0.06) 0px 0px 0px 1px,
+    rgba(0, 0, 0, 0.3) 0px 2px 4px,
+    rgba(255, 255, 255, 0.02) 0px 0px 0px 1px inset;
+}
+
+/* Pill badge style */
+.pill {
+  border-radius: 9999px;
+  padding: 2px 10px;
+  font-size: 12px;
+  font-weight: 500;
+}
